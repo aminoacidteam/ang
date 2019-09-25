@@ -1,5 +1,9 @@
 
+def translate():#각 코돈에 대응하는 아미노산의 종류를 지정한다.
+=======
+
 def translate(rslt): 
+
     table = { 
         'AUA':'ILEU-', 'AUC':'ILEU-', 'AUU':'ILEU-', 'AUG':'MET-', 
         'ACA':'THR-', 'ACC':'THR-', 'ACG':'THR-', 'ACU':'THR-', 
@@ -22,6 +26,15 @@ def translate(rslt):
     protein ="" 
     sm = False
 
+    if len(rslt)%3 == 0: 
+        for i in range(0, len(rslt), 3):#염기서열을 3개씩 쪼개어 지정한다.
+
+            codon = rslt[i:i + 3]#코돈을 지정한다.
+
+            if codon == 'ATG':
+                sm = True#개시코돈을 읽으면 번역을 시작한다.
+=======
+
     for i in range(0, len(rslt)):
 
         codon = rslt[i:i + 3]
@@ -29,8 +42,11 @@ def translate(rslt):
 
             if sm == True:
                 if codon == ('TAA' or 'TAG' or 'TGA'):
-                    return protein
+                    return protein#종결코돈을 읽으면 번역을 중단하고 단백질을 리턴한다.
                 else: 
+                    protein+= table[codon]#신장을 계속한다. 
+                 
+=======
                     protein+= table[codon] 
             if codon ==('TTT' or 'TTC'):
                 print('if you have 페닐케톤뇨증, 삼가 고인의 명복을 빔.')
