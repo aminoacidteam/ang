@@ -1,5 +1,11 @@
+
+def comp(seq):  
+    #상보적 방식 함수
+    comp_dict={'A':'T', 'T':'A', 'C':'G', 'G':'C'}
+=======
 def comp(seq):  #상보적 방식 함수
     comp_dict={'A':'T', 'T':'A', 'C':'G', 'G':'C'} #상보적 관계 설정
+
     seq_comp=""
     for char in seq: #char는 2개 이상을 사용할 때 한 개의 문자열을 출력하게 하는 것
         if char in comp_dict: #char에 comp_dict가 없다면
